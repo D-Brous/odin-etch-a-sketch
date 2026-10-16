@@ -1,0 +1,1 @@
+This is a simulation of an etch-a-sketch in the form of an interactive website.
