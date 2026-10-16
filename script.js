@@ -3,6 +3,12 @@ const SKETCH_PAD_LENGTH = 16
 function createPixel() {
   const pixel = document.createElement('div');
   pixel.classList.add('pixel');
+  pixel.addEventListener('mouseenter', (_) => {
+    pixel.classList.add('pixel-selected')
+  });
+  pixel.addEventListener('mouseleave', (_) => {
+    pixel.classList.remove('pixel-selected')
+  })
   return pixel
 }
 
