@@ -12,9 +12,6 @@ function createPixel() {
   pixel.addEventListener('mouseenter', (_) => {
     pixel.classList.add('pixel-selected')
   });
-  pixel.addEventListener('mouseleave', (_) => {
-    pixel.classList.remove('pixel-selected')
-  })
   return pixel
 }
 
