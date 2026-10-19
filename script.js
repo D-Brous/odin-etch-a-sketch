@@ -44,13 +44,14 @@ function deleteSketchPad() {
 
 createSketchPad(DEFAULT_SKETCH_PAD_LENGTH);
 const lengthButton = document.querySelector('#display-size');
+const badInput = document.querySelector('#bad-input');
 lengthButton.addEventListener('click', (_) => {
   const length = prompt(promptMessage);
   if (isPositiveInteger(length) && length <= 100) {
     deleteSketchPad();
     createSketchPad(length);
+    badInput.textContent = "";
   } else {
-    const badInput = document.querySelector('#bad-input');
     badInput.textContent = badInputMessage;
   }
 })
