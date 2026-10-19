@@ -1,4 +1,5 @@
 const DEFAULT_SKETCH_PAD_LENGTH = 16;
+let currentLength = 16;
 const promptMessage = 'Please enter the desired grid side length in pixels:';
 const badInputMessage = '**Must enter a positive integer <= 100**';
 
@@ -43,6 +44,7 @@ function deleteSketchPad() {
 }
 
 createSketchPad(DEFAULT_SKETCH_PAD_LENGTH);
+
 const lengthButton = document.querySelector('#display-size');
 const badInput = document.querySelector('#bad-input');
 lengthButton.addEventListener('click', (_) => {
@@ -51,7 +53,14 @@ lengthButton.addEventListener('click', (_) => {
     deleteSketchPad();
     createSketchPad(length);
     badInput.textContent = "";
+    currentLength = length;
   } else {
     badInput.textContent = badInputMessage;
   }
+})
+
+const resetButton = document.querySelector('#reset-display');
+resetButton.addEventListener('click', (_) => {
+  deleteSketchPad();
+  createSketchPad(currentLength);
 })
