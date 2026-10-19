@@ -14,8 +14,17 @@ body {
 }
 
 #display-size, #reset-display {
+  background-color: white;
   height: 50vh;
   font-size: 30px;
+}
+
+#display-size:hover, #reset-display:hover {
+  background-color: rgb(229, 229, 229);
+}
+
+#display-size:active, #reset-display:active {
+  background-color: rgb(229, 229, 229);
 }
 
 #bad-input {
