@@ -1,7 +1,7 @@
 const DEFAULT_SKETCH_PAD_LENGTH = 16;
-let currentLength = 16;
-const promptMessage = 'Please enter the desired grid side length in pixels:';
-const badInputMessage = '**Must enter a positive integer <= 100**';
+let displayResolution = 16;
+const promptMessage = 'Please enter the desired display resolution in pixels:';
+const badInputMessage = 'Must enter a positive integer <= 100';
 
 function isPositiveInteger(number) {
   return /^\d+$/.test(number) && Number(number) > 0;
@@ -22,12 +22,12 @@ function createPixelRow() {
   return pixelRow
 }
 
-function createSketchPad(length) {
+function createSketchPad() {
   const sketchPad = document.querySelector('#sketch-pad');
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < displayResolution; i++) {
     const pixelRow = createPixelRow();
     sketchPad.appendChild(pixelRow);
-    for (let j = 0; j < length; j++) {
+    for (let j = 0; j < displayResolution; j++) {
       const pixel = createPixel();
       pixelRow.appendChild(pixel);
     }
@@ -48,12 +48,12 @@ createSketchPad(DEFAULT_SKETCH_PAD_LENGTH);
 const lengthButton = document.querySelector('#display-size');
 const badInput = document.querySelector('#bad-input');
 lengthButton.addEventListener('click', (_) => {
-  const length = prompt(promptMessage);
-  if (isPositiveInteger(length) && length <= 100) {
+  const providedResolution = prompt(promptMessage);
+  if (isPositiveInteger(providedResolution) && providedResolution <= 100) {
     deleteSketchPad();
-    createSketchPad(length);
+    displayResolution = providedResolution;
+    createSketchPad();
     badInput.textContent = "";
-    currentLength = length;
   } else {
     badInput.textContent = badInputMessage;
   }
@@ -62,5 +62,5 @@ lengthButton.addEventListener('click', (_) => {
 const resetButton = document.querySelector('#reset-display');
 resetButton.addEventListener('click', (_) => {
   deleteSketchPad();
-  createSketchPad(currentLength);
+  createSketchPad();
 })
