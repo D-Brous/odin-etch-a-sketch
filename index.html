@@ -7,9 +7,23 @@
   <link rel="stylesheet", href="./styles.css">
 </head>
 <body>
-  <button id="display-size">change display size</button>
-  <div id="bad-input"></div>
-  <div id="sketch-pad"></div>
+  <div id="side-bar">
+    <button id="display-size">
+      Change Display Size
+      <div id="bad-input"></div>
+    </button>
+    <button id="reset-display">Reset Display</button>
+  </div>
+  
+  <div id="etch-a-sketch">
+    <div id="sketch-pad"></div>
+    <div id="dial-container">
+      <div class="dial"></div>
+      <div id="author-label">Etch-A-Sketch by Daniel Brous</div>
+      <div class="dial"></div>
+    </div>
+  </div>
+  
   <script src="./script.js"></script>
 </body>
 </html>
